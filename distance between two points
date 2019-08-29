@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+float squareroot(float,float,float,float);
+int main()
+{
+	
+	float x1,x2,y1,y2,d;
+	printf("for finding the distance between two points\n enter the value of x1=");
+	scanf("%f",&x1);
+	printf("enter the value of x2=");
+	scanf("%f",&x2);
+	printf("enter the value of y1=");
+	scanf("%f",&y1);
+	printf("enter the value of y2=");
+	scanf("%f",&y2);
+	d=squareroot(x1,x2,y1,y2);
+	printf("Distance between two points is=%f",d);
+	return 0;
+}
+float squareroot(float a,float b,float c,float d)
+{
+	float z;
+	
+	z=sqrt(pow((b-a),2)+pow((d-c),2));
+	return z;
+}
