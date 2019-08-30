@@ -1,0 +1,30 @@
+#include <stdio.h>
+int input();
+int sum(int ,int);
+int result(int);
+int main()
+{
+    int a,b,z;
+    z=a+b;
+    input();
+    sum(a,b);
+    result(z);
+    return 0;
+    
+}
+int input()
+{
+    int a,b;
+    printf("For finding the sum\n enter the first number=");
+    scanf("%d",&a);
+    printf("enter the second number=");
+    scanf("%d",&b);
+}
+int sum(int a,int b)
+{
+    return (a+b);
+}
+int result(int z)
+{
+    printf("sum=%d",z);
+}
