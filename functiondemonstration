@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+int input();
+int sum(int ,int);
+int result(int);
+int main()
+{
+    input();
+    return EXIT_SUCCESS;
+}
+int input()
+{
+    int a,b;
+    printf("for finding the sum\n enter the first number=");
+    scanf("%d",&a);
+    printf("enter the second number=");
+    scanf("%d",&b);
+    sum(a,b);
+    return 0;
+}
+int sum(int a,int b)
+{
+    int z=a+b;
+    result(z);
+    return 0;
+}
+int result(int z)
+{
+    printf("the sum of two numbers is=%d\n",z);
+    return 0;
+}
