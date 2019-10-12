@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    int i,n;
+    printf("enter the number till which the even numbers should be printed=");
+    scanf("%d",&n);
+    printf("even numbers are=\n");
+    i=2;
+    while(i>=n)
+    {
+       printf("%d\t",i);
+       i+=2;
+    }
+    return 0;
+}
