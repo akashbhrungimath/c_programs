@@ -6,9 +6,9 @@ int main()
    scanf("%d",&a);
    for(;a!=0;a/=10)
    {
-      n%=a;
-      sum=sum*10+n;
+      n=a%10;
+      sum=sum+n;
    }
-   printf("sum of the digits is=%d",sum);
+   printf("sum of the digits is=%d\n",sum);
    return 0;
 }
