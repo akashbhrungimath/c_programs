@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main()
+{
+    int m,n;
+    printf("enter the range to print the even numbers=");
+    scanf("%d%d",&m,&n);
+    printf("even numbers are");
+    if (m<n)
+    {
+       if (m%2==0)
+       {
+          for(;m<=n;m+=2)
+          {
+              printf("%d\t",m);
+          }
+       }
+       else
+       {
+          m+=1;
+          for(;m<=n;m+=2)
+          {
+             printf("%d\n",m);
+          }
+       }
+     }
+     else
+     {
+        printf("invalid input");
+     }
+    return 0;
+}
