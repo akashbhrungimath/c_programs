@@ -19,13 +19,13 @@ int main()
           m+=1;
           for(;m<=n;m+=2)
           {
-             printf("%d\n",m);
+             printf("%d\t",m);
           }
        }
      }
      else
      {
-        printf("invalid input");
+        printf("invalid input\n");
      }
     return 0;
 }
