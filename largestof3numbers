@@ -2,19 +2,19 @@
 int main()
 {
    int a,b,c;
-   printf("enter three numbers to find the largest of them");
+   printf("enter three numbers to find the largest of them\n");
    scanf("%d%d%d",&a,&b,&c);
    if (a>b&&a>c)
    {
-      printf("a is the largest");
+      printf("%d is the largest\n",a);
    }
    else if (b>a&&b>c)
    {
-      printf("b is the largest");
+      printf("%d is the largest\n",b);
    }
    else
    { 
-      printf("c is the largest");
+      printf("%d is the largest\n",c);
    }
    return 0;
 }
