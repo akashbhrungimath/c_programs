@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+   int a,b,c;
+   float z,r1,r2;
+   printf("enter the value of a,b,c\n");
+   scanf("%d%d%d",&a,&b,&c);
+   z=pow((b),2)-4*a*c;
+   r1=(-b+sqrt(z))/(2*a);
+   r2=(-b-sqrt(z))/(2*a);
+   if (z>=0)
+   {
+      printf("roots are real and distinct\n");
+      printf("roots are %f\t%f\n",r1,r2);
+   }
+   else if (z==0)
+   {
+      printf("roots are real and equal\n");
+      printf("root is %f\n",(float)-b/(2*a));
+   }
+   else
+   {
+      printf("roots are imaginary\n");
+   }
+   return 0;
+}
