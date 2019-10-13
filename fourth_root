@@ -1,0 +1,13 @@
+/*finding fourth root of a given number*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    double a;
+    printf("enter the number to find its fourth root=");
+    scanf("%lf",&a);
+    printf("forth root of %lf is=%lf\n",a,trunc(exp(log(a)/4)));
+    return EXIT_SUCCESS;
+}
