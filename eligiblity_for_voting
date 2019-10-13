@@ -1,0 +1,20 @@
+/*eligiblity of voting*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    int num;
+    printf("enter your age=");
+    scanf("%d",&num);
+    if(num<18)
+    {
+        printf("you are not ellgible for voting\n");
+    }
+    else
+    {
+        printf("you are elligible for voting\n");
+    }
+    return EXIT_SUCCESS;
+}
