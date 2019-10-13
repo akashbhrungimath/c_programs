@@ -1,0 +1,13 @@
+/*finding cuberoot without using functions*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    double a;
+    printf("enter the number to find it's cube root=");
+    scanf("%lf",&a);
+    printf("cube root of the number is=%lf",cbrt(a));
+    return EXIT_SUCCESS;
+}
