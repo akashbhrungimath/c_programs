@@ -1,14 +1,23 @@
+/*finding the sum of the digits entered by using functions with for loop*/
+
 #include<stdio.h>
+int sum(int);
 int main()
 {
-   int a,n,sum=0;
-   printf("enter the number to find the sum of it's digits=");
-   scanf("%d",&a);
-   for(;a!=0;a/=10)
-   {
-      n=a%10;
-      sum=sum+n;
-   }
-   printf("sum of the digits is=%d\n",sum);
-   return 0;
+    int a,s;
+    printf("enter the digits to find their sum=");
+    scanf("%d",&a);
+    s=sum(a);
+    printf("the sum of the digits is=%d\n",s);
+    return 0;
+}
+int sum(int a)
+{
+    int sum=0,n;
+    for (;a!=0;a/=10)
+    {
+        n=a%10;
+        sum=sum+n;
+    }
+    return sum;
 }
