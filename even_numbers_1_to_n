@@ -1,16 +1,21 @@
 #include<stdio.h>
-#include<stdlib.h>
+int increment();
 int main()
 {
-   int i,n;
-   printf("enter the number till which the even numbers are to be printed=");
-   scanf("%d",&n);
-   printf("even numbers are=\n");
-   i=2;
-   while (i<=n)
-   {
-      printf("%d\t",i);
-      i+=2;
-   }
-   return EXIT_SUCCESS;
+    int a,i,b;
+    printf("enter the number till which the even numbers should be printed=");
+    scanf("%d",&a);
+    i=1;
+    while (i<=a)
+    {
+        b=increment();
+        i=(b+2);
+    }
+    return 0;
+}
+int increment()
+{
+    static int a=0;
+    printf("%d\t",a+=2);
+    return a;
 }
