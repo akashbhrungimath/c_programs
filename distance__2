@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+void input();
+void cal(float,float,float,float);
+void output(float);
+int main()
+{
+   input();
+   return 0;
+}
+void input()
+{
+   float x1,x2,y1,y2;
+   printf("enter the values of x1,x2,y1,y2 to find the distance between the points in 2D");
+   scanf("%f%f%f%f",&x1,&x2,&y1,&y2);
+   cal(x1,x2,y1,y2);
+}
+void cal(float x1,float x2,float y1,float y2)
+{
+   float d;
+   d=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
+   output(d);
+}
+void output(float d)
+{
+   printf("distance between the entered points is=%f",d);
+}
