@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+    int a,i,m,count1=0,count2=0;
+    char c;
+    do
+    {
+        printf("enter the number=\n");
+        scanf("%d",&a);
+        for (i=2;i<a;i++)
+        {
+            if(a%i==0)
+                m=1;
+        }
+        if(m==1)
+            count1++;
+        else
+            count2++;
+        printf("do you want to enter any more numbers(y/n)=");
+        scanf(" %c",&c);
+    }while(c=='y'||c=='Y');
+    printf("number of prime numbers entered are=%d\n",count2);
+    printf("number of composite numbers entered are=%d\n",count1);
+    return 0;
+}
