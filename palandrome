@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+    int k,a,rev=0,n;
+    printf("enter the number to get the reverse number of it=");
+    scanf("%d",&a);
+    k=a;
+    for(;a!=0;a/=10)
+    {
+        n=a%10;
+        rev=rev*10+n;
+    }
+    if(rev==k)
+        printf("yes,the entered number is palandrome\n");
+    else
+        printf("no,the entered number is not a palandrome\n");
+    return 0;
+}
