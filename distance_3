@@ -1,0 +1,19 @@
+#include<stdio.h>
+struct frac
+{
+    int num;
+    int den;
+};
+int main()
+{
+    int n,d;
+    struct frac f1,f2;
+    printf("enter the numerator and denominator of the first fraction\n");
+    scanf("%d%d",&f1.num,&f1.den);
+    printf("enter the numerator and denominator of the second fraction\n");
+    scanf("%d%d",&f2.num,&f2.den);
+    n=(f1.num*f2.den)+(f2.num*f1.den);
+    d=f1.den*f2.den;
+    printf("sum of the fraction entered is=%d/%d\n",n,d);
+    return 0;
+}
