@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<math.h>
+struct dis
+{
+    float x,y;
+};
+int main()
+{
+    float d;
+    struct dis p1,p2;
+    printf("enter the x1 and y1 of the first point\n");
+    scanf("%f%f",&p1.x,&p1.y);
+    printf("enter the x2 and y2 of the second point\n");
+    scanf("%f%f",&p2.x,&p2.y);
+    d=sqrt(pow((p2.x-p1.x),2)+(pow((p2.y-p1.y),2)));
+    printf("the distance of the entered points is=%f\n",d);
+    return 0;
+}
