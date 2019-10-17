@@ -2,7 +2,7 @@
 #include<ctype.h>
 int main()
 {
-   int count1,count2,count3,a;
+   int count1=0,count2=0,count3=0,a=0;
    char c;
    do
    {
