@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+   int count1,count2,count3,a;
+   char c;
+   do
+   {
+       printf("enter the character=");
+       scanf(" %c",&c);
+       if (isupper(c))
+       {
+          count1++;
+       }
+       else if (islower(c))
+       {
+          count2++;
+       }
+       else if(isdigit(c))
+       {
+          count3++;
+       }
+       else
+           a++;
+    }while(c!='*');
+    printf("number of lower alphabets are=%d\n",count1);
+    printf("number of upper case alphabets are=%d\n",count2);
+    printf("number of digits are=%d\n",count3);
+    return 0;
+}
