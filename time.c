@@ -13,7 +13,5 @@ int main()
 }
 int time(int h,int m)
 {
-     int t;
-     t=(h*60)+m;
-     return t   ;
+     return ((h*60)+m);
 }
