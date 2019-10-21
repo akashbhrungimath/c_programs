@@ -1,19 +1,34 @@
 #include<stdio.h>
+void input();
+void calc(int,int,int,int);
+void output(int,int);
 struct frac
 {
     int num;
     int den;
 };
+void input()
+{
+    struct frac f1,f2;
+    printf("enter the numeretor and denominator of the first fraction=\n");
+    scanf("%d%d",&f1.num,&f1.den);
+    printf("enter the numerator and denominator of the second fraction=\n");
+    scanf("%d%d",&f2.num,&f2.den);
+    calc(f1.num,f1.den,f2.num,f2.den);
+}
+void calc(int a,int b,int c,int d)
+{
+    int n,e;
+    n=(a*d)+(c*b);
+    e=b*d;
+    output(n,e);
+}
+void output(int n,int e)
+{
+    printf("sum of the entered fractions is=%d/%d\n",n,e);
+}
 int main()
 {
-    int n,d;
-    struct frac f1,f2;
-    printf("enter the numerator and denominator of the first fraction\n");
-    scanf("%d%d",&f1.num,&f1.den);
-    printf("enter the numerator and denominator of the second fraction\n");
-    scanf("%d%d",&f2.num,&f2.den);
-    n=(f1.num*f2.den)+(f2.num*f1.den);
-    d=f1.den*f2.den;
-    printf("sum of the fraction entered is=%d/%d\n",n,d);
+    input();
     return 0;
 }
