@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+    int n,i;
+    printf("enter how many numbers you want to give=");
+    scanf("%d",&n);
+    int a[n];
+    printf("enter the numbers=\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("entered numbers are=\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d",a[i]);
+    }
+    return 0;
+}
