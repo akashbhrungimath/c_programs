@@ -7,48 +7,48 @@ int main()
     {
         for(j=0;j<3;j++)
         {
-            scanf("%d",&a[i][j];
+            scanf("%d",&a[i][j]);
         }
     }
-    printf("          \ts1\ts2\ts3");
+    printf("          \ts1\ts2\ts3\n");
     for(i=0;i<5;i++)
     {
-        printf("student %d=\t",i);
+        printf("student %d=\t",i+1);
         for(j=0;j<3;j++)
         {
-            printf("%d\t",a[i][j];
+            printf("%d\t",a[i][j]);
         }
         printf("\n");
     }
-    large1=a[1][1];
+    large1=a[0][0];
     for(i=0;i<5;i++)
     {
-        if(a[i][1]>large1)
+        if(a[i][0]>large1)
         {
-            large1=a[i][1];
-            pos1=i;
+            large1=a[i][0];
+            pos1=i+1;
         }
     }
-    large2=a[1][2];
+    large2=a[0][1];
     for(i=0;i<5;i++)
     {
-        if(a[i][2]>large2)
+        if(a[i][1]>large2)
         {
-            large2=a[i][2];
-            pos2=i;
+            large2=a[i][1];
+            pos2=i+1;
         }
     }
-    large3=a[1][3];
+    large3=a[0][2];
     for(i=0;i<5;i++)
     {
-        if(a[i][3]>large3)
+        if(a[i][2]>large3)
         {
-            large3=a[i][3];
-            pos3=i;
+            large3=a[i][2];
+            pos3=i+1;
         }
     }
-    printf("greatest in first subject is of student%d=%d",pos1,large1);
-    printf("greatest in second subject is of student%d=%d",pos2,large2);
-    printf("greatesr in third subject is of student%d=%d",pos3,large3);
+    printf("greatest in first subject is of student%d=%d\n",pos1,large1);
+    printf("greatest in second subject is of student%d=%d\n",pos2,large2);
+    printf("greatesr in third subject is of student%d=%d\n",pos3,large3);
     return 0;
 }
