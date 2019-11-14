@@ -4,28 +4,28 @@ struct employee
 {
     char eid[20];
     char n[20];
-    long int s;
     char doj[20];
-}e1;
+    double s;
+};
+struct employee e1;
 int main()
 {
-    struct employee e1;
     printf("enter the ID of the employee\n");
     gets(e1.eid);
     printf("enter the name of the employee\n");
     gets(e1.n);
-    printf("enter the salary of the employee\n");
-    scanf("%ld",&e1.s);
     printf("enter the date of joining of the employee\n");
     gets(e1.doj);
+    printf("enter the salary of the employee\n");
+    scanf("%lf",&e1.s);
     printf("details of the employee above entered is \n");
-    Printf("ID:  ");
+    printf("\nID:  ");
     puts(e1.eid);
-    printf("\nName of the employee: "):
+    printf("\nName of the employee: ");
     puts(e1.n);
-    printf("\nSalary of the employee: %d\n",e1.s);
-    printf("Date of the employee is: ");
+    printf("\nDate of the employee is: ");
     puts(e1.doj);
+    printf("\nSalary of the employee: %lf\n\n",e1.s);
     return 0;
 }
     
