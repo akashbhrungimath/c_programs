@@ -7,9 +7,9 @@ struct employee
     char doj[20];
     double s;
 };
+struct employee e1;
 int main()
 {
-    struct employee e1;
     printf("enter the ID of the employee\n");
     gets(e1.eid);
     printf("enter the name of the employee\n");
