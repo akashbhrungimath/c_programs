@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+    char s1[100],s2[100],s3[200];
+    int i,j;
+    printf("enter the first string\n");
+    gets(s1);
+    printf("enter the second string\n");
+    gets(s2);
+    i=0;
+    while(s1[i]!='\0')
+    {
+        s3[i]=s1[i];
+        i++;
+    }
+    j=0;
+    while(s2[j]!='\0')
+    {
+        s3[i]=s2[j];
+        j++;
+        i++;
+    }
+    s3[i]='\0';
+    printf("concatenation of the above entered strings is\n");
+    puts(s3);
+    return 0;
+}
