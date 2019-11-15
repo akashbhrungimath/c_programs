@@ -1,18 +1,20 @@
 #include<stdio.h>
+#include<string.h>
 int main()
 {
     FILE *fl;
     char c;
     printf("enter the file contents:\n");
     fl=fopen("INPUT","a");
-    while((getchar(c))!=EOF)
-        puts(c,fl);
+    while((c=getchar())!=EOF)
+        putc(c,fl);
     fclose(fl);
     printf("the file contentd are\n");
     fl=fopen("INPUT","r");
-    while((c=getchar(fl))!=EOF)
-        printf(" %c",c);
+    while((c=getc(fl))!=EOF)
+        printf("%c",c);
     fclose(fl);
+    printf("\n");
     return 0;
 }
     
