@@ -5,9 +5,8 @@ int result(int);
 int main()
 {
     int a,b,z;
-    z=a+b;
     input();
-    sum(a,b);
+    z=sum(a,b);
     result(z);
     return 0;
     
