@@ -1,11 +1,11 @@
 #include<stdio.h>
 int input();
 int sum(int ,int);
-int result(int);
+void result(int);
 int main()
 {
     int a,b,z;
-    printf("For finding the sum");
+    printf("For finding the sum\n");
     a=input();
     b=input();
     z=sum(a,b);
@@ -24,7 +24,7 @@ int sum(int a,int b)
 {
     return (a+b);
 }
-int result(int z)
+void result(int z)
 {
-    printf("sum=%d",z);
+    printf("sum=%d\n",z);
 }
