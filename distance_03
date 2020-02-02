@@ -4,15 +4,35 @@ struct dis
 {
     float x,y;
 };
+typedef struct dis DIS;
+DIS input();
+float cal(DIS,DIS);
+void output(float,DIS,DIS);
 int main()
 {
+    DIS p1,p2;
     float d;
-    struct dis p1,p2;
-    printf("enter the x1 and y1 of the first point\n");
-    scanf("%f%f",&p1.x,&p1.y);
-    printf("enter the x2 and y2 of the second point\n");
-    scanf("%f%f",&p2.x,&p2.y);
-    d=sqrt(pow((p2.x-p1.x),2)+(pow((p2.y-p1.y),2)));
-    printf("the distance of the entered points is=%f\n",d);
-    return 0;
+    p1=input();
+    p2=input();
+    d=cal(p1,p2);
+    output(d,p1,p2);
+}
+DIS input()
+{
+    DIS a;
+    static int i=1;
+    printf("enter the absica and ordinate of the %d point=\n",i);
+    scanf("%f%f",&a.x,&a.y);
+    i++;
+    return a;
+}
+float cal(DIS p1,DIS p2)
+{
+    float d;
+    d=sqrt(pow((p2.x-p1.x),2)+pow((p2.y-p1.y),2));
+    return d;
+}
+void output(float d,DIS p1,DIS p2)
+{
+    printf("the distance between the pts (%f,%f) and (%f,%f) is=%f\n",p1.x,p1.y,p2.x,p2.y,d);
 }
