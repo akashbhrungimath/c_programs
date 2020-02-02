@@ -1,30 +1,31 @@
 #include<stdio.h>
-int input();
-int sum(int ,int);
-void result(int);
+float input();
+float sum(float,float);
+void result(float,float,float);
 int main()
 {
-    int a,b,z;
+    float a,b,z;
     printf("For finding the sum\n");
     a=input();
     b=input();
     z=sum(a,b);
-    result(z);
+    result(z,a,b);
     return 0;
     
 }
-int input()
+float input()
 {
-    int a;
+    float a;
     printf("enter the number=");
-    scanf("%d",&a);
+    scanf("%f",&a);
     return a;
 }
-int sum(int a,int b)
+float sum(float a,float b)
 {
     return (a+b);
 }
-void result(int z)
+void result(float z,float a,float b)
 {
-    printf("sum=%d\n",z);
+    printf("a=%f\nb=%f\n",a,b);
+    printf("sum=%f\n",z);
 }
