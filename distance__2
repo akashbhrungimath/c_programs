@@ -1,27 +1,46 @@
 #include<stdio.h>
 #include<math.h>
-void input();
-void cal(float,float,float,float);
-void output(float);
+float input();
+float cal(float,float,float,float);
+void output(float,float,float,float,float);
 int main()
 {
-   input();
-   return 0;
+    float x1,x2,y1,y2,d; 
+    x1=input();
+    x2=input();
+    y1=input();
+    y2=input();
+    d=cal(x1,x2,y1,y2);
+    output(d,x1,x2,y1,y2);
+    return 0;
 }
-void input()
+float input()
 {
-   float x1,x2,y1,y2;
-   printf("enter the values of x1,x2,y1,y2 to find the distance between the points in 2D\n");
-   scanf("%f%f%f%f",&x1,&x2,&y1,&y2);
-   cal(x1,x2,y1,y2);
+    static int i=1,j=1;
+    float a;
+    if(i%2!=0)
+    {
+        printf("enter the absica of the %d point=",j);
+        scanf("%f",&a);
+        i++;
+    }
+    else
+    {
+        printf("enter the ordinate of the %d point=",j);
+        scanf("%f",&a);
+        j++;
+        i++;
+    }
+    return a;
 }
-void cal(float x1,float x2,float y1,float y2)
+float cal(float x1,float x2,float y1,float y2)
 {
-   float d;
-   d=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
-   output(d);
+    float d;
+    d=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
+    return d;
 }
-void output(float d)
+void output(float d,float x1,float x2,float y1,float y2)
 {
-   printf("distance between the entered points is=%f\n",d);
+    printf("x1=%f\nx2=%f\ny1=%f\ny2=%f\n",x1,x2,y1,y2);
+    printf("distance between the entered points is=%f\n",d);
 }
