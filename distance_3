@@ -1,34 +1,49 @@
 #include<stdio.h>
-void input();
-void calc(int,int,int,int);
-void output(int,int);
 struct frac
 {
     int num;
     int den;
 };
-void input()
+typedef struct frac FRAC;
+FRAC input();
+FRAC calc(FRAC,FRAC);
+void output(FRAC,FRAC,FRAC);
+FRAC input()
 {
-    struct frac f1,f2;
-    printf("enter the numeretor and denominator of the first fraction=\n");
-    scanf("%d%d",&f1.num,&f1.den);
-    printf("enter the numerator and denominator of the second fraction=\n");
-    scanf("%d%d",&f2.num,&f2.den);
-    calc(f1.num,f1.den,f2.num,f2.den);
+    FRAC f;
+    static int i=1;
+    printf("enter the numeretor and denominator of the %d fraction=\n",i);
+    scanf("%d%d",&f.num,&f.den);
+    i++;
+    return f;
 }
-void calc(int a,int b,int c,int d)
+FRAC calc(FRAC f1,FRAC f2)
 {
-    int n,e;
-    n=(a*d)+(c*b);
-    e=b*d;
-    output(n,e);
+    FRAC f;
+    int i,a[6]={2,3,5,7,11,13};
+    f.num=(f1.num*f2.den)+(f2.num*f1.den);
+    f.den=(f1.den*f2.den);
+    for(i=0;i<=6;i++)
+    {
+        if(f.num%a[i]==0&&f.den%a[i]==0)
+        {
+            f.num=f.num/a[i];
+            f.den=f.den/a[i];
+            i=-1;
+        }
+    }
+    return f;
 }
-void output(int n,int e)
+void output(FRAC f3,FRAC f2,FRAC f1)
 {
-    printf("sum of the entered fractions is=%d/%d\n",n,e);
+    printf("sum of the (%d/%d) and (%d/%d) is=%d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
 }
 int main()
 {
-    input();
+    FRAC f1,f2,f3;
+    f1=input();
+    f2=input();
+    f3=calc(f1,f2);
+    output(f3,f2,f1);
     return 0;
 }
