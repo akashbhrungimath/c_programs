@@ -26,6 +26,5 @@ float sum(float a,float b)
 }
 void result(float z,float a,float b)
 {
-    printf("a=%f\nb=%f\n",a,b);
-    printf("sum=%f\n",z);
+    printf("%f+%f=%f",a,b,z);
 }
