@@ -5,25 +5,23 @@ struct point
     float x,y;
 };
 typedef struct point POINT;
-POINT input();
+POINT input(int);
 float cal(POINT p1,POINT p2);
 void output(float,POINT,POINT);
 int main()
 {
     POINT p1,p2;
     float d;
-    p1=input();
-    p2=input();
+    p1=input(1);
+    p2=input(2);
     d=cal(p1,p2);
     output(d,p1,p2);
 }
-POINT input()
+POINT input(int i)
 {
     POINT a;
-    static int i=1;
     printf("enter the absica and ordinate of the %d point=\n",i);
     scanf("%f%f",&a.x,&a.y);
-    i++;
     return a;
 }
 float cal(POINT p1,POINT p2)
