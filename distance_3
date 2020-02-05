@@ -1,8 +1,8 @@
 #include<stdio.h>
 struct frac
 {
-    int num;
-    int den;
+    float num;
+    float den;
 };
 typedef struct frac FRAC;
 FRAC input(int);
@@ -12,32 +12,31 @@ FRAC input(int i)
 {
     FRAC f;
     printf("enter the numeretor and denominator of the %d fraction=\n",i);
-    scanf("%d%d",&f.num,&f.den);
+    scanf("%f%f",&f.num,&f.den);
     return f;
 }
 FRAC calc(FRAC f1,FRAC f2)
 {
     FRAC f;
-    int i=2;
+    float a,b;
     f.num=(f1.num*f2.den)+(f2.num*f1.den);
     f.den=(f1.den*f2.den);
-    while(f.num>=1||f.den>=1)
+    a=f.num;
+    b=f.den;
+    while(a!=b)
     {
-        if(f.num%i==0&&f.den%i==0)
-        {
-            f.num=f.num/i;
-            f.den=f.den/i;
-            i=1;
-        }
-        i++;
-        if(i>=f.den||i>=f.num)
-            break;
+        if(a>b)
+            a=a-b;
+        else
+            b=b-a;
     }
+    f.num=f.num/a;
+    f.den=f.den/a;
     return f;
 }
 void output(FRAC f3,FRAC f2,FRAC f1)
 {
-    printf("sum of the (%d/%d) and (%d/%d) is=%d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
+    printf("sum of the (%f/%f) and (%f/%f) is=%f/%f\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
 }
 int main()
 {
