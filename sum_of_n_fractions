@@ -7,7 +7,7 @@ struct frac
 typedef struct frac FRAC;
 FRAC input(int);
 void gcd(int *,int *);
-void output(float,float);
+void output(int,int);
 FRAC input(int i)
 {
 	FRAC f;
