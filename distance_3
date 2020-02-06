@@ -1,19 +1,19 @@
 #include<stdio.h>
 struct frac
 {
-    float num;
-    float den;
+    int num;
+    int den;
 };
 typedef struct frac FRAC;
 FRAC input(int);
 FRAC calc(FRAC,FRAC);
-float gcd(float,float);
+int gcd(int,int);
 void output(FRAC,FRAC,FRAC);
 FRAC input(int i)
 {
     FRAC f;
     printf("enter the numeretor and denominator of the %d fraction=\n",i);
-    scanf("%f%f",&f.num,&f.den);
+    scanf("%d%d",&f.num,&f.den);
     return f;
 }
 FRAC calc(FRAC f1,FRAC f2)
@@ -24,7 +24,7 @@ FRAC calc(FRAC f1,FRAC f2)
     f.den=(f1.den*f2.den);
     return f;
 }
-float gcd(float a,float b)
+int gcd(int a,int b)
 {
     while(a!=b)
     {
@@ -37,12 +37,12 @@ float gcd(float a,float b)
 }
 void output(FRAC f3,FRAC f2,FRAC f1)
 {
-    printf("sum of the (%f/%f) and (%f/%f) is=%f/%f\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
+    printf("sum of the (%d/%d) and (%d/%d) is=%d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
 }
 int main()
 {
     FRAC f1,f2,f3;
-    float g;
+    int g;
     f1=input(1);
     f2=input(2);
     f3=calc(f1,f2);
