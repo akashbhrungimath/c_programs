@@ -1,31 +1,33 @@
 #include<stdio.h>
 struct frac
 {
-    int num;
-    int den;
+    float num;
+    float den;
 };
 int main()
 {
-    int n=0,d=1,i,no,a[6]={2,3,5,7,11,13};
+    int i,no;
+	float n=0,d=1,a,b;
     struct frac f1;
     printf("enter the number of fractions you want to enter=");
     scanf("%d",&no);
     for(i=1;i<=no;i++)
     {
         printf("enter the numerator and denominator of fraction %d=\n",i);
-        scanf("%d%d",&f1.num,&f1.den);
+        scanf("%f%f",&f1.num,&f1.den);
         n=(f1.num*d)+(n*f1.den);
         d=d*(f1.den);
     }
-    for(i=0;i<=6;i++)
+    a=n,b=d;
+    while(a!=b)
     {
-        if(n%a[i]==0&&d%a[i]==0)
-        {
-            n=n/a[i];
-            d=d/a[i];
-            i=-1;
-        }
-    }    
-    printf("the sum of entered fractions is=%d/%d\n",n,d);
+        if(a>b)
+            a=a-b;
+        else
+            b=b-a;
+    }
+    n=n/a;
+    d=d/a;  
+    printf("the sum of entered fractions is=%f/%f\n",n,d);
     return 0;
 }
