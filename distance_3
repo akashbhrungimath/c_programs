@@ -7,7 +7,7 @@ struct frac
 typedef struct frac FRAC;
 FRAC input(int);
 FRAC calc(FRAC,FRAC);
-FRAC gcd(FRAC);
+float gcd(float,float);
 void output(FRAC,FRAC,FRAC);
 FRAC input(int i)
 {
@@ -24,9 +24,8 @@ FRAC calc(FRAC f1,FRAC f2)
     f.den=(f1.den*f2.den);
     return f;
 }
-FRAC gcd(FRAC f)
+float gcd(float a,float b)
 {
-    float a=f.num,b=f.den;
     while(a!=b)
     {
         if(a>b)
@@ -34,9 +33,7 @@ FRAC gcd(FRAC f)
         else
             b=b-a;
     }
-    f.num=f.num/a;
-    f.den=f.den/a;
-	return f;
+	return a;
 }
 void output(FRAC f3,FRAC f2,FRAC f1)
 {
@@ -45,10 +42,13 @@ void output(FRAC f3,FRAC f2,FRAC f1)
 int main()
 {
     FRAC f1,f2,f3;
+    float g;
     f1=input(1);
     f2=input(2);
     f3=calc(f1,f2);
-    f3=gcd(f3);
+    g=gcd(f3.num,f3.den);
+    f3.num=f3.num/g;
+    f3.den=f3.den/g;
     output(f3,f2,f1);
     return 0;
 }
