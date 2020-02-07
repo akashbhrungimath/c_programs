@@ -8,7 +8,8 @@ typedef struct frac FRAC;
 FRAC input(int);
 FRAC calc(FRAC,FRAC);
 int gcd(int,int);
-void output(FRAC,FRAC,FRAC,int);
+FRAC reduction(FRAC,int);
+void output(FRAC,FRAC,FRAC);
 FRAC input(int i)
 {
     FRAC f;
@@ -35,9 +36,15 @@ int gcd(int a,int b)
     }
 	return a;
 }
-void output(FRAC f3,FRAC f2,FRAC f1,int g)
+FRAC reduction(FRAC f,int g)
 {
-    printf("sum of the (%d/%d) and (%d/%d) is=%d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num/g,f3.den/g);
+    f.num=f.num/g;
+    f.den=f.den/g;
+    return f;
+}
+void output(FRAC f3,FRAC f2,FRAC f1)
+{
+    printf("sum of the (%d/%d) and (%d/%d) is=%d/%d\n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
 }
 int main()
 {
@@ -47,6 +54,7 @@ int main()
     f2=input(2);
     f3=calc(f1,f2);
     g=gcd(f3.num,f3.den);
-    output(f3,f2,f1,g);
+    f3=reduction(f3,g);
+    output(f3,f2,f1);
     return 0;
 }
