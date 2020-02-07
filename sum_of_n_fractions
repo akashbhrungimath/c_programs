@@ -1,23 +1,30 @@
 #include<stdio.h>
 struct frac
 {
-    float num;
-    float den;
+    int num;
+    int den;
 };
 typedef struct frac FRAC;
 FRAC input(int);
-void gcd(float *,float *);
-void output(float,float);
+FRAC calc(FRAC,FRAC,int);
+void gcd(int *,int *);
+void output(int,int);
 FRAC input(int i)
 {
 	FRAC f;
 	printf("enter the numerator and denominator of fraction %d\n",i);
-	scanf("%f%f",&f.num,&f.den);
+	scanf("%d%d",&f.num,&f.den);
 	return f;
 }
-void gcd(float *n,float *d)
+FRAC calc(FRAC f1,FRAC f,int i)
 {
-    float a=*n,b=*d;
+    f.num=(f1.num*f.den)+(f.num*f1.den);
+    f.den=f.den*(f1.den);
+	return f;
+}
+void gcd(int *n,int *d)
+{
+    int a=*n,b=*d;
     while(a!=b)
     {
         if(a>b)
@@ -28,24 +35,24 @@ void gcd(float *n,float *d)
     *n=*n/a;
     *d=*d/a;
 }
-void output(float n,float d)
+void output(int n,int d)
 {
-	printf("the sum of entered fractions is=%f/%f\n",n,d);
+	printf("the sum of entered fractions is=%d/%d\n",n,d);
 }
 int main()
 {
     int i,no;
-    float n=0,d=1;
-    FRAC f;
+    FRAC f,f1;
+	f.num=0;
+	f.den=1;
     printf("enter the number of fractions you want to enter=");
     scanf("%d",&no);
     for(i=1;i<=no;i++)
     {
-        f=input(i);
-        n=(f.num*d)+(n*f.den);
-        d=d*(f.den);
+        f1=input(i);
+        f=calc(f1,f,i);
     }
-    gcd(&n,&d);
-    output(n,d); 
+    gcd(&f.num,&f.den);
+    output(f.num,f.den); 
     return 0;
 }
