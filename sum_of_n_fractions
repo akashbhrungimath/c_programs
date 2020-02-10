@@ -59,11 +59,11 @@ int gcd(int a,int b)
 }
 void output(int n,FRAC f[n],FRAC ff)
 {
-	for(int i=0;i<n;i++)
+	for(int i=0;i<n-1;i++)
 	{
-		printf("(%d/%d)",f[i].num,f[i].den);
+		printf("(%d/%d)+",f[i].num,f[i].den);
 	}
-	printf("the sum of entered fractions is=%d/%d\n",ff.num,ff.den);
+	printf("(%d/%d)=%d/%d\n",f[n-1].num,f[n-1].den,ff.num,ff.den);
 }
 int main()
 {
