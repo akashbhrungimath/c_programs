@@ -6,10 +6,18 @@ struct frac
 };
 typedef struct frac FRAC;
 FRAC input(int);
+void getfraction(int,FRAC *);
 FRAC calc(int,FRAC *);
 FRAC reduction(FRAC);
 int gcd(int,int);
-void output(int,int);
+void output(int,FRAC *,FRAC);
+void getfraction(int no,FRAC f[no])
+{
+	for(int i=0;i<no;i++)
+    {
+        f[i]=input(i);
+    }
+}
 FRAC input(int i)
 {
 	FRAC f;
@@ -49,9 +57,13 @@ int gcd(int a,int b)
     }
     return a;
 }
-void output(int n,int d)
+void output(int n,FRAC f[n],FRAC ff)
 {
-	printf("the sum of entered fractions is=%d/%d\n",n,d);
+	for(int i=0;i<n;i++)
+	{
+		printf("(%d/%d)",f[i].num,f[i].den);
+	}
+	printf("the sum of entered fractions is=%d/%d\n",ff.num,ff.den);
 }
 int main()
 {
@@ -60,11 +72,8 @@ int main()
     printf("enter the number of fractions you want to enter=");
     scanf("%d",&no);
     FRAC f[no];
-    for(i=0;i<no;i++)
-    {
-        f[i]=input(i);
-    }
+    getfraction(no,f);
     ff=calc(no,f);
-    output(ff.num,ff.den); 
+    output(no,f,ff); 
     return 0;
 }
