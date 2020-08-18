@@ -29,24 +29,21 @@ void get_array(int n,int a[n])
 }
 void compute(int n,int a[n],int b[n])
 {
-	int p=a[0];
-	b[n]=(0),b[0]=a[0];
-	for(int i=0;i<n;i++)
+	int pivot=a[0];
+	b[n]=(0),b[0]=pivot;
+	for(int j=0;j<n;j++)
 	{
-		for(int j=0;j<n;j++)
+		if(pivot>a[j])
 		{
-			if(p<a[j])
-			{
-				for(int k=j;k>=0;k--)
-					b[k]=b[k-1];
-				b[0]=a[i];
-			}
-			if(p>a[j])
-			{
-				for(int k=n-1;k>i;k--)
-					b[k]=b[k-1];
-				b[i]=a[i];
-			}
+			for(int k=j;k>0;k--)
+				b[k]=b[k-1];
+			b[0]=a[j];
+		}
+		if(pivot<a[j])
+		{
+			for(int k=n-1;k>j;k--)
+				b[k]=b[k-1];
+			b[j]=a[j];
 		}
 	}
 }
