@@ -1,6 +1,6 @@
 def my_input():
-    a=int(input("Enter the first number="))
-    b=int(input("Enter the second number="))
+    a=float(input("Enter the first number="))
+    b=float(input("Enter the second number="))
     return a,b
     
 def my_add(a,b):
@@ -8,7 +8,7 @@ def my_add(a,b):
     return s
     
 def my_output(x,y,s):
-    print("%d + %d is %d"%(x,y,s))
+    print("%f + %f is %f"%(x,y,s))
 
 def main():
     x,y=my_input()
