@@ -2,8 +2,7 @@
 int input();
 void get_array(int ,int *);
 void compute(int ,int *);
-int count_no_of_small_nos(int,int,int *);
-void my_append(int,int *,int,int);
+void my_append(int,int *,int);
 void output(int ,int *);
 int main()
 {
@@ -31,24 +30,17 @@ void get_array(int n,int a[n])
 }
 void compute(int n,int a[n])
 {
-	int pivot=a[0],s;
-	s=count_no_of_small_nos(pivot,n,a);
-	my_append(n,a,pivot,s);
+	int pivot=a[0];
+	my_append(n,a,pivot);
 }
-int count_no_of_small_nos(int pivot,int n,int a[n])
+void my_append(int n,int a[n],int pivot)
 {
-	int s=0;
-	for(int i=1;i<n;i++)
-	{
-		if(a[i]<=pivot)
-			s++;
-	}
-	return s;
-}
-void my_append(int n,int a[n],int pivot,int s)
-{
-	int j=0,k=n-1,l;
-	for(int i=1;i<=s;i++)
+	int j=0,k=n-1,l,m;
+	if((n%2)==0)
+		m=n/2;
+	else
+		m=(n+1)/2;
+	for(int i=1;i<m;i++)
 	{
 		if(a[i]<=pivot)
 			a[i-1]=a[i];
@@ -59,7 +51,7 @@ void my_append(int n,int a[n],int pivot,int s)
 			a[i-1]=l;
 		}
 	}
-	a[s]=pivot;
+	a[k]=pivot;
 }
 void output(int n,int a[n])
 {
