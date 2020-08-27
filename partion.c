@@ -1,18 +1,21 @@
 #include<stdio.h>
 int input();
 void get_array(int ,int *);
-void compute(int ,int *,int *);
+void compute(int ,int *);
 int count_no_of_small_nos(int,int,int *);
-void my_append(int,int *,int *,int,int);
+int count_no_of_high_nos(int,int,int *);
+void collect_the_smalls(int,int,int *,int *);
+void collect_the_highs(int,int,int *,int *);
+void my_assemble(int,int *,int,int,int,int *,int *);
 void output(int ,int *);
 int main()
 {
 	int n;
 	n=input();
-	int a[n],b[n];
+	int a[n];
 	get_array(n,a);
-	compute(n,a,b);
-	output(n,b);
+	compute(n,a);
+	output(n,a);
 }
 int input()
 {
@@ -29,11 +32,16 @@ void get_array(int n,int a[n])
 		scanf("%d",&a[i]);
 	}
 }
-void compute(int n,int a[n],int b[n])
+void compute(int n,int a[n])
 {
-	int pivot=a[0],s;
+	int pivot=a[0],s,h;
 	s=count_no_of_small_nos(pivot,n,a);
-	my_append(n,a,b,pivot,s);
+	int b[s];
+	h=count_no_of_high_nos(pivot,n,a);
+	int c[h];
+	collect_the_smalls(n,pivot,a,b);
+	collect_the_highs(n,pivot,a,c);
+	my_assemble(n,a,pivot,s,h,b,c);
 }
 int count_no_of_small_nos(int pivot,int n,int a[n])
 {
@@ -45,21 +53,55 @@ int count_no_of_small_nos(int pivot,int n,int a[n])
 	}
 	return s;
 }
-void my_append(int n,int a[n],int b[n],int pivot,int s)
+int count_no_of_high_nos(int pivot,int n,int a[n])
 {
-	int j=0;
-	b[s++]=pivot;
+	int h=0;
 	for(int i=0;i<n;i++)
 	{
 		if(a[i]<pivot)
-			b[j++]=a[i];
-		if(a[i]>pivot)
-			b[s++]=a[i];
+			h++;
+	}
+	return h;
+}
+void collect_the_smalls(int n,int pivot,int a[n],int b[n])
+{
+	int k=0;
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]<pivot)
+		{
+			b[k++]=a[i];
+		}
 	}
 }
-void output(int n,int b[n])
+void collect_the_highs(int n,int pivot,int a[n],int c[n])
+{
+	int k=0;
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]>pivot)
+		{
+			c[k++]=a[i];
+		}
+	}
+}
+void my_assemble(int n,int a[n],int pivot,int s,int h,int b[s],int c[h])
+{
+	int j=0;
+	for(int i=0;i<s;i++)
+	{
+		a[i]=b[i];
+	}
+	a[s++]=pivot;
+	for(int i=s;i<n;i++)
+	{
+		a[i]=c[j];
+		j++;
+	}
+}
+void output(int n,int a[n])
 {
 	for(int i=0;i<n;i++)
-		printf("%d",b[i]);
+		printf("%d",a[i]);
 	printf("\n");
 }
