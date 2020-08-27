@@ -5,12 +5,7 @@ def my_input():
     return a,b,c
     
 def my_largest(x,y,z):
-    if x>y and x>z:
-    	l=x
-    elif y>z:
-    	l=y
-    else:
-    	l=z
+    l=x if x>y and x>z else y if y>z else z
     return l
     
 def my_output(l,x,y,z):
