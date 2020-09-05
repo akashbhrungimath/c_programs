@@ -45,14 +45,20 @@ void my_append(int n,int a[n],int pivot)
 		else
 		{
 			l=a[k];
-			a[k--]=a[i];
+			if(l<pivot)
+				a[k--]=a[i];
+			else 
+				l=a[i];
 			if(l>pivot)
 			{
 				do
 				{
 					o=l;
 					l=a[k];
-					a[k--]=o;
+					if(l<pivot)
+						a[k--]=o;
+					else
+						l=a[k--];
 				}while(k+1>i);
 			}
 			a[i-1]=l;
