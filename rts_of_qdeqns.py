@@ -12,8 +12,8 @@ def my_rts(a,b,c):
 		x=(-b+sqrt(z))/2*a
 		y=(-b-sqrt(z))/2*a
 	elif z<0:
-		x=(-b/2*a)
-		y=(z/2*a)
+		x=complex((-b/2*a),(z/2*a))
+		y=complex((-b/2*a),-(z/2*a))
 	else:
 		x=-b/2*a
 		y=-b/2*a
@@ -21,7 +21,8 @@ def my_rts(a,b,c):
 	
 def my_output(x,y,z,a,b,c):
 	if z<0:
-		print("the roots of the quadratic equation (%d)x^2 + (%d)x + (%d) are (%d+i(%d)) and (%d-i(%d))"%(a,b,c,x,y,x,y))
+		print("the roots of the quadratic equation (%d)x^2 + (%d)x + (%d) are"%(a,b,c))
+		print(x,y)
 	else:
 		print("the roots of the quadratic equation (%d)x^2 + (%d)x + (%d) are %f and %f"%(a,b,c,x,y))
 	
