@@ -10,8 +10,8 @@ def my_input():
 def my_rts(a,b,c):
 	z=(b**2)-(4*a*c)
 	p=cmath.sqrt(z)/2*a
-	x=complex((-b/2*a),0)+p
-	y=complex((-b/2*a),0)-p
+	x=(-b/2*a)+p
+	y=(-b/2*a)-p
 	return x,y,z
 	
 def my_output(x,y,z,a,b,c):
