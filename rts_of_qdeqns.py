@@ -9,22 +9,15 @@ def my_input():
 	
 def my_rts(a,b,c):
 	z=(b**2)-(4*a*c)
-	if z<0:
-		p=cmath.sqrt(z)/2*a
-		x=complex((-b/2*a),0)+p
-		y=complex((-b/2*a),0)-p
-	else:
-		x=(-b+sqrt(z))/2*a
-		y=(-b-sqrt(z))/2*a
+	p=cmath.sqrt(z)/2*a
+	x=complex((-b/2*a),0)+p
+	y=complex((-b/2*a),0)-p
 	return x,y,z
 	
 def my_output(x,y,z,a,b,c):
-	if z<0:
-		print("the roots of the quadratic equation (%d)x^2 + (%d)x + (%d) are"%(a,b,c))
-		print(x,y)
-	else:
-		print("the roots of the quadratic equation (%d)x^2 + (%d)x + (%d) are %f and %f"%(a,b,c,x,y))
-	
+	print("the roots of the quadratic equation (%d)x^2 + (%d)x + (%d) are"%(a,b,c))
+	print(x,y)
+		
 def main():
 	a,b,c=my_input()
 	x,y,z=my_rts(a,b,c)
