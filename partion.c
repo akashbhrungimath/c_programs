@@ -35,12 +35,28 @@ void compute(int n,int a[n])
 }
 void my_append(int n,int a[n],int pivot)
 {
-	int j=0,k=n-1,i=0,l,m,o;
-	for(i=1;i<=k;i++)
+	int j=0,k=n-1,i=1,p,b,l,m,q,o;
+	while(i<=k)
 	{
 		if(a[i]<=pivot)
 		{
-			a[i-1]=a[i];
+			p=a[i+1];
+			b=i;
+			if(p>pivot)
+			{
+				a[i-1]=a[i];
+			}
+			else
+			{
+				do
+				{
+					q=p;
+					p=a[i+1];
+					if(p>pivot)
+						a[b-1]=q;
+					i++;
+				}while(p<pivot);
+			}
 		}
 		else
 		{
@@ -62,6 +78,7 @@ void my_append(int n,int a[n],int pivot)
 				}while(k+1>i);
 			}
 			a[i-1]=l;
+			i++;
 		}
 	}
 	a[k]=pivot;
