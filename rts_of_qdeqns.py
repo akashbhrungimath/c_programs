@@ -9,16 +9,13 @@ def my_input():
 	
 def my_rts(a,b,c):
 	z=(b**2)-(4*a*c)
-	if  z>0:
-		x=(-b+sqrt(z))/2*a
-		y=(-b-sqrt(z))/2*a
-	elif z<0:
+	if z<0:
 		p=cmath.sqrt(z)/2*a
 		x=complex((-b/2*a),0)+p
 		y=complex((-b/2*a),0)-p
 	else:
-		x=-b/2*a
-		y=-b/2*a
+		x=(-b+sqrt(z))/2*a
+		y=(-b-sqrt(z))/2*a
 	return x,y,z
 	
 def my_output(x,y,z,a,b,c):
