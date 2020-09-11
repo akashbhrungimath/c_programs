@@ -1,4 +1,5 @@
 from math import sqrt
+import cmath
 
 def my_input():
 	a=int(input("Enter the value of a in the quadratic equation="))
@@ -7,13 +8,14 @@ def my_input():
 	return a,b,c
 	
 def my_rts(a,b,c):
-	z=b**2-4*a*c
+	z=(b**2)-(4*a*c)
 	if  z>0:
 		x=(-b+sqrt(z))/2*a
 		y=(-b-sqrt(z))/2*a
 	elif z<0:
-		x=complex((-b/2*a),(z/2*a))
-		y=complex((-b/2*a),-(z/2*a))
+		p=cmath.sqrt(z)/2*a
+		x=complex((-b/2*a),0)+p
+		y=complex((-b/2*a),0)-p
 	else:
 		x=-b/2*a
 		y=-b/2*a
