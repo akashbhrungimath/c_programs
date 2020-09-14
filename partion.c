@@ -12,6 +12,7 @@ int main()
 	get_array(n,a);
 	compute(n,a);
 	output(n,a);
+	return 0;
 }
 int input()
 {
@@ -35,25 +36,25 @@ void compute(int n,int a[n])
 }
 void my_append(int n,int a[n],int pivot)
 {
-	int j=0,k=n-1,i=1,p,b,l,m,q,o;
+	int j=0,k=n-1,i=1,p,b,l,o;
 	while(i<=k)
 	{
 		if(a[i]<=pivot)
 		{
 			p=a[i+1];
-			b=i;
 			if(p>pivot)
 			{
 				a[i-1]=a[i];
+				i++;
 			}
 			else
 			{
+				b=i;
 				do
 				{
-					q=p;
 					p=a[i+1];
 					if(p>pivot)
-						a[b-1]=q;
+						a[b-1]=a[i];
 					i++;
 				}while(p<pivot);
 			}
