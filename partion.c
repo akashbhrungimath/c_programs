@@ -60,27 +60,29 @@ void my_append(int n,int a[n],int pivot)
 		else
 		{
 			l=a[k];
-			if(l<=pivot)
-				a[k--]=a[i];
+			if(a[k]<=pivot)
+				a[k]=a[i];
 			else 
-				l=a[i];
-			if(l>pivot)
 			{
+				o=a[i];
 				do
 				{
-					o=l;
 					l=a[k];
-					if(l<pivot)
-						a[k--]=o;
+					if(a[k]<pivot)
+						a[k]=o;
 					else
-						l=a[k--];
-				}while(k+1>i);
+						k--;
+				}while(k+1>i&&a[k+1]==l)
 			}
 			a[i-1]=l;
 			i++;
+			k--;
 		}
 	}
-	a[k]=pivot;
+	if(k<0)
+		a[0]=pivot;
+	else
+		a[k]=pivot;
 }
 void output(int n,int a[n])
 {
