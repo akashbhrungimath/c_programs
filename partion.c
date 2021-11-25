@@ -72,7 +72,7 @@ void my_append(int n,int a[n],int pivot)
 						a[k]=o;
 					else
 						k--;
-				}while(k+1>i&&a[k+1]==l)
+				}while(k+1>i&&a[k+1]==l);
 			}
 			a[i-1]=l;
 			i++;
