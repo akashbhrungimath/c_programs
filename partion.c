@@ -2,7 +2,6 @@
 int input();
 void get_array(int ,int *);
 void compute(int ,int *);
-void my_append(int,int *,int);
 void output(int ,int *);
 int main()
 {
@@ -29,42 +28,29 @@ void get_array(int n,int a[n])
 		scanf("%d",&a[i]);
 	}
 }
-void compute(int n,int a[n])
+void compute(int n,int a[])
 {
-	int pivot=a[0];
-	my_append(n,a,pivot);
-}
-void my_append(int n,int a[n],int pivot)
-{
-	int k=n-1,i=1,l,c=0;
-	while(i<=k)
+	int pivot=a[0],k=n-1,i=1,l,c=0;
+	while(i<k)
 	{
-		if(a[i]<=pivot)
+		while(a[i]<=pivot && i<k)
+			i++;	
+		while(a[k]>pivot && i<k)
+			k--;
+		if(a[i]>pivot && a[k]<=pivot)
 		{
-			if(i=k)
-				a[c]=a[k];
+			l=a[k];
+			a[k]=a[i];
+			a[i]=l;
 			i++;
+			k--;
 		}
-		else
-		{
-			
-			if(a[k]>pivot)
-			{
-				k--;
-				continue;
-			}
-			else
-			{
-				l=a[k];
-				a[k]=a[i];
-				i++;
-				k--;
-				a[c]=l;
-				c++;
-			}
-		}	
 	}
-	a[k]=pivot;
+	if(a[k]<pivot)
+	{
+		a[c]=a[k];
+		a[k]=pivot;
+	}
 }
 void output(int n,int a[n])
 {
