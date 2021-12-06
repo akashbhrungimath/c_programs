@@ -30,21 +30,22 @@ void get_array(int n,int a[n])
 }
 void compute(int n,int a[])
 {
-	int pivot=a[0],k=n-1,i=1,l,c=0;
+	int pivot=a[0],k=n-1,i=0,l,c=0;
+	while(a[i]<=pivot)
+		i++;	
+	while(a[k]>pivot)
+		k--;
 	while(i<k)
 	{
-		while(a[i]<=pivot && i<k)
+		l=a[k];
+		a[k]=a[i];
+		a[i]=l;
+		i++;
+		k--;
+		while(a[i]<=pivot)
 			i++;	
-		while(a[k]>pivot && i<k)
+		while(a[k]>pivot)
 			k--;
-		if(a[i]>pivot && a[k]<=pivot)
-		{
-			l=a[k];
-			a[k]=a[i];
-			a[i]=l;
-			i++;
-			k--;
-		}
 	}
 	if(a[k]<pivot)
 	{
