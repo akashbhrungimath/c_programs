@@ -4,9 +4,9 @@
 int get_input();
 int get_ndo();
 void get_digits(int,int *);
-void find_combinations(int,int *,int,int *);
-void constct_row(int,int *,int,int *);
-//void display(int ,int *);
+void find_combinations(int,int *,int,int **,int);
+//void xyz(int,int,int,int *,int,int **,int);
+void display(int,int,int **);
 int get_input()
 {
 	int a;
@@ -27,41 +27,50 @@ void get_digits(int n,int a[])
 	for(int i=0;i<n;i++)
 		scanf("%d",&a[i]);
 }
-void find_combinations(int n,int a[],int size,int *combn)
+void find_combinations(int n,int a[],int size,int **combn,int ndo)
 {
-	int x=0;
+	int q=1,r=0,s;
+	for(int i=ndo-1;i>=0;i--)
+	{
+		s=0;
+		int x=pow(n,q);
+		for(int j=0;j<(size/x);j++)
+		{
+			int y=pow(n,r);
+			for(int l=0;l<n;l++)
+			{
+				for(int k=0;k<y;k++)
+				{
+					combn[s++][i]=a[l];
+				}
+			}
+		}
+		r++;
+		q++;
+	}
+}
+void display(int size,int ndo,int **a)
+{
 	for(int i=0;i<size;i++)
 	{
-		constct_row(i,x,n,a,size,combn);
+		for(int j=0;j<ndo;j++)
+			printf("%d\t",*(*(a+i)+j));
+		printf("\n");
 	}
 }
-void constct_row(int i,int x,int n,int a[],int size,int *combn)
-{
-	*(*(combn+i)+x)=a[i];
-	for(int j=0;j<n-1;j++)
-	{
-		if(x<n)
-			constct_row(i,x+1,n,a,size,combn);
-		
-	}
-}
-/*void display(int n,int a[n])
-{
-	for(int i=0;i<n;i++)
-    {
-        printf("%d\n",a[i]);
-    }
-}*/
 int main()
 {
-    int n,size=0,ndo,*a,*combn;
-    n=get_input();
-    ndo=get_ndo();
-    size=pow(n,ndo);
+	int n,size=0,ndo,*a;
+	int **combn;
+	n=get_input();
+	ndo=get_ndo();
+	size=pow(n,ndo);
 	a=(int *)malloc(n*sizeof(int));
-	combn=(int *)malloc((size*n)*sizeof(int));
+	combn=(int **)malloc((size*n)*sizeof(int));
+	for(int i=0;i<size;i++)
+		combn[i]=(int *)malloc(ndo*sizeof(int));
 	get_digits(n,a);
-	find_combinations(n,a,size,combn);
-	//display(n,a);
-    return 0;
+	find_combinations(n,a,size,combn,ndo);
+	display(size,ndo,combn);
+	return 0;
 }
