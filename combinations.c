@@ -5,7 +5,6 @@ int get_input();
 int get_ndo();
 void get_digits(int,int *);
 void find_combinations(int,int *,int,int **,int);
-//void xyz(int,int,int,int *,int,int **,int);
 void display(int,int,int **);
 int get_input()
 {
