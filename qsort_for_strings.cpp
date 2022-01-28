@@ -12,7 +12,7 @@ int get_input()
 	scanf("%d",&n);
 	return n;
 }
-void get_array(int n,char **a)
+void get_array(int n,char *a[])
 {
 	printf("enter the strings=\n");
 	for(int i=0;i<n;i++)
@@ -31,7 +31,7 @@ int compare(const void *x,const void *y)
 	else
 		return 0;
 }
-void display(int n,char **a)
+void display(int n,char *a[])
 {
 	printf("the sorted list is=\n");
 	for(int i=0;i<n;i++)
@@ -42,17 +42,15 @@ void display(int n,char **a)
 int main()
 {
 	int no_names,name_length,q;
-	char **a;
 	no_names=get_input();
 	printf("enter the length of lenghtiest name in the list=");
 	scanf("%d",&name_length);
-	a=(char **)malloc(no_names*sizeof(char));
+	char *a[no_names];
 	for(int i=0;i<no_names;i++)
 		a[i]=(char *)malloc(name_length*sizeof(char));
 	get_array(no_names,a);
-	printf("%p %s \n%p %s\n",a[0],a[0],a[1],a[1]);
-	//q=compare(a[0],a[1]);
-	qsort(a,no_names,name_length,compare);
+	printf("%p %s \n%p %s\n%p %s \n",a[0],a[0],a[1],a[1],a[2],a[2]);
+	qsort(a,no_names,sizeof(*a),compare);
 	display(no_names,a);
 	return 0;
 }
