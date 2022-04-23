@@ -3,7 +3,7 @@
 #include<string.h>
 int get_input();
 void get_array(int ,char **);
-int compare(const void *,const void *);
+int mystrcmp(const void **,const void **);
 void display(int,char **);
 int get_input()
 {
@@ -15,6 +15,14 @@ void get_array(int n,char *a[])
 {
 	for(int i=0;i<n;i++)
 		scanf(" %s\n",a[i]);
+}
+int mystrcmp(const void **a,const void **b)
+{
+	char** p=(char**) a;
+	char** q=(char**) b;
+	printf("the address of the a=%p\n",*p);
+	printf("the address of the b=%p\n",*q);
+	return strcmp(*p,*q);
 }
 void display(int n,char *a[])
 {
@@ -36,7 +44,9 @@ int main()
 		a[i]=(char *)malloc(name_length*sizeof(char));
 	printf("enter the strings=\n");
 	get_array(no_names,a);
-	qsort(a,no_names,sizeof(*a),(int (*) (const void *,const void *))strcmp);
+	printf("the address before was=%p\n",a[0]);
+	printf("the address before was=%p\n",a[1]);
+	qsort(a,no_names,sizeof(*a),(int (*) (const void *,const void *))mystrcmp);
 	display(no_names,a);
 	return 0;
 }
