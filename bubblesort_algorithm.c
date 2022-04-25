@@ -3,7 +3,7 @@
 #include<string.h>
 int get_input();
 void get_array(int ,char **);
-void my_qsort(char**,int,int,int (*my_strcmp)(const void ** ,const void **));
+void bubblesort(char**,int,int,int (*my_strcmp)(const void ** ,const void **));
 int mystrcmp(const void **,const void **);
 void display(int,char **);
 int get_input()
@@ -17,7 +17,7 @@ void get_array(int n,char *a[])
 	for(int i=0;i<n;i++)
 		scanf(" %s\n",a[i]);
 }
-void my_qsort(char **a,int no_names,int size_of_name,int (*my_strcmp)(const void **,const void **))
+void bubblesort(char **a,int no_names,int size_of_name,int (*my_strcmp)(const void **,const void **))
 {
 	int flag;
 	char *temp;
@@ -62,7 +62,7 @@ int main()
 		a[i]=(char *)malloc(name_length*sizeof(char));
 	printf("enter the strings=\n");
 	get_array(no_names,a);
-	my_qsort(a,no_names,sizeof(*a),&mystrcmp);
+	bubblesort(a,no_names,sizeof(*a),&mystrcmp);
 	display(no_names,a);
 	return 0;
 }
