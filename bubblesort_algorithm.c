@@ -3,7 +3,7 @@
 #include<string.h>
 int get_input();
 void get_array(int ,char **);
-void bubblesort(char**,int,int,int (*my_strcmp)(const void ** ,const void **));
+void bubblesort(void**,int,int,int (*my_strcmp)(const void ** ,const void **));
 int mystrcmp(const void **,const void **);
 void display(int,char **);
 int get_input()
@@ -15,39 +15,47 @@ int get_input()
 void get_array(int n,char *a[])
 {
 	for(int i=0;i<n;i++)
+	{
 		scanf(" %s\n",a[i]);
+	}
 }
-void bubblesort(char **a,int no_names,int size_of_name,int (*my_strcmp)(const void **,const void **))
+void bubblesort(void **a,int no_names,int size_of_name,int (*my_strcmp)(const void **,const void **))
 {
 	int flag;
-	char *temp;
-	temp=(char*)malloc(size_of_name*sizeof(char));
-	for(int i=0;i<no_names;i++)
+	void **temp1,**temp2,**temp3;
+	temp1=(void**)malloc(1);
+	*temp1=(void*)malloc(size_of_name);
+	temp2=(void**)malloc(1);
+	*temp2=(void*)malloc(size_of_name);
+	temp3=(void**)malloc(1);
+	*temp3=(void*)malloc(size_of_name);
+	for(int i=0;i<no_names-1;i++)
 	{
+		temp2=a+i;
 		for(int j=i+1;j<no_names;j++)
 		{
-			flag=my_strcmp((void*)&a[i],(void*)&a[j]);
+			temp3=a+j;
+			flag=my_strcmp((const void**)a+i,(const void**)a+j);
 			if(flag>0)
 			{
-				temp=a[i];
-				a[i]=a[j];
-				a[j]=temp;
+				*temp1=*temp2;
+				*temp2=*temp3;
+				*temp3=*temp1;
 			}
+			
 		}
 	}
 }
 int mystrcmp(const void **a,const void **b)
 {
-	char** p=(char**) a;
-	char** q=(char**) b;
-	return strcmp(*p,*q);
+	return strcmp(*(char**)a,*(char**)b);
 }
-void display(int n,char *a[])
+void display(int n,char **a)
 {
 	printf("the sorted list is=\n");
 	for(int i=0;i<n;i++)
 	{
-		printf("%s\n",a[i]);
+		printf("%s\n",*(a+i));
 	}
 }
 int main()
@@ -62,7 +70,7 @@ int main()
 		a[i]=(char *)malloc(name_length*sizeof(char));
 	printf("enter the strings=\n");
 	get_array(no_names,a);
-	bubblesort(a,no_names,sizeof(*a),&mystrcmp);
+	bubblesort((void**)a,no_names,sizeof(*a),&mystrcmp);
 	display(no_names,a);
 	return 0;
 }
