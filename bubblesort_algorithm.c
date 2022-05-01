@@ -22,29 +22,22 @@ void get_array(int n,char *a[])
 void bubblesort(void **a,int no_names,int size_of_name,int (*my_strcmp)(const void **,const void **))
 {
 	int flag;
-	void **temp1,**temp2,**temp3;
-	temp1=(void**)malloc(1);
-	*temp1=(void*)malloc(size_of_name);
-	temp2=(void**)malloc(1);
-	*temp2=(void*)malloc(size_of_name);
-	temp3=(void**)malloc(1);
-	*temp3=(void*)malloc(size_of_name);
+	void *temp;
+	temp=(void*)malloc(size_of_name);
 	for(int i=0;i<no_names-1;i++)
 	{
-		temp2=a+i;
 		for(int j=i+1;j<no_names;j++)
 		{
-			temp3=a+j;
 			flag=my_strcmp((const void**)a+i,(const void**)a+j);
 			if(flag>0)
 			{
-				*temp1=*temp2;
-				*temp2=*temp3;
-				*temp3=*temp1;
-			}
-			
+				temp=*(a+i);
+				*(a+i)=*(a+j);
+				*(a+j)=temp;
+			}	
 		}
 	}
+	free(temp);
 }
 int mystrcmp(const void **a,const void **b)
 {
@@ -72,5 +65,7 @@ int main()
 	get_array(no_names,a);
 	bubblesort((void**)a,no_names,sizeof(*a),&mystrcmp);
 	display(no_names,a);
+	for(int i=0;i<no_names;i++)
+		free(a[i]);
 	return 0;
 }
