@@ -58,9 +58,33 @@ public:
         return;
     }
   }
-  void display()
+  void display_inordertraversal()
+  {
+    inordertraversal(root);
+  }
+  void inordertraversal(Node *n)
+  {
+    if(n==NULL)
+      return;
+    inordertraversal(n->left);
+    cout<<n->data<<endl;
+    inordertraversal(n->right);
+  }
+  void display_preordertraversal()
   {
     print(root);
+  }
+  void height()
+  {
+    cout<<cal_height(root)<<endl;
+  }
+  int cal_height(Node *n)
+  {
+    if(n==NULL)
+      return 0;
+    int x=cal_height(n->left)+1;
+    int y=cal_height(n->right)+1;
+    return (x>y)? x:y;
   }
 };
 int main()
