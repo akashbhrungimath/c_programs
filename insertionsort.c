@@ -12,6 +12,7 @@ int main()
     getInput(arr,n);
     insertionSort(arr,n);
     printArray(arr,n);
+    free(arr);
     return 0;
 }
 int getn()

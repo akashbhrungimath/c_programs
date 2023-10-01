@@ -8,6 +8,7 @@ int main()
     a = getHeap();
     heapSort(a);
     printHeap(a);
+    deleteHeap(a);
 }
 void heapSort(HeapArray h)
 {

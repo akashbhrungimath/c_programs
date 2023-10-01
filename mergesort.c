@@ -13,6 +13,8 @@ int main()
     getArray(a,n);
     mergesort(a,0,n-1);
     printArray(a,n);
+    free(a);
+    return 0;
 }
 void getArray(int *arr, int size)
 {
