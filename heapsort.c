@@ -12,7 +12,7 @@ int main()
 }
 void heapSort(HeapArray h)
 {
-    for(int i=0; i<h.heapsize; i++)
+    for(int i=h.heapsize-1; i>=0; i--)
     {
         heapify(h.arr, h.heapsize, i);
     }
@@ -20,9 +20,9 @@ void heapSort(HeapArray h)
 void heapify(int *a, int size, int i)
 {
     int largest=i;
-    if(i<size-1 && a[i+1]>a[i])
+    if(i<size-1 && a[i+1]<a[i])
         largest = i+1;
-    if(i<size-2 && a[i+2]>a[largest])
+    if(i<size-2 && a[i+2]<a[largest])
         largest = i+2;
     if(largest!=i)
     {
