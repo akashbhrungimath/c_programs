@@ -33,16 +33,13 @@ void insertionSort(int *arr, int size)
 {
     for(int i=1; i<size; i++)
     {
-        for(int j=0; j<i; j++)
+        for(int j=i; j>0; j--)
         {
-            if(arr[i] < arr[j])
+            if(arr[j-1] < arr[j])
             {
-                int temp = arr[i];
-                for(int k=i; k>j; k--)
-                {
-                    arr[k] = arr[k-1];
-                }
-                arr[j] = temp;
+                int temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
             }
         }
     }
